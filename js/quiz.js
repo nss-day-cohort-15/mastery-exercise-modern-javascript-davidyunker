@@ -10,6 +10,8 @@
 
 
 // A base Robot function.
+
+var BattleBots = (function (battleBots) {
 var Robot = function () {
   this.attack = 10
   this.health = 50
@@ -115,5 +117,7 @@ var militaryVehicle = function () {
 };
 
 Robot.ATV.militaryVehicle.prototype = new Robot.ATV();
+
+})(BattleBots)
 
 

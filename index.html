@@ -8,8 +8,10 @@
   <title>Robot wars</title>
 </head>
 <body>
-  <label for="robot1" id="robot1">Robot 1:</label>
-  <input type="text" id="robot1">
+
+
+  <label for="robot1">Robot 1:</label>
+  <input type="text" id="robot1"><br>
     <select class="robots">
             <option value="ThanksObama">Thanks Obama</option>
             <option value="PhotoTime">Photo Time</option>
@@ -17,9 +19,9 @@
             <option value="JohnnyFive">Johnny Five</option>
             <option value="RecVehicle">Rec Vehicle</option>
             <option value="MilitaryVec">Military Vehicle</option>
-    </select>
-  <label for="robot2" id="robot2">Robot 2:</label>
-  <input type="text" id="robot2">
+    </select><br>
+  <label for="robot2">Robot 2:</label>
+  <input type="text" id="robot2"><br>
     <select class="opponents">
             <option value="ThanksObama">Thanks Obama</option>
             <option value="PhotoTime">Photo Time</option>
@@ -28,10 +30,11 @@
             <option value="RecVehicle">Rec Vehicle</option>
             <option value="MilitaryVec">Military Vehicle</option>
           </select>
+    <input type="button" id="fight" value="fight"><br>
     <input type="button" id="attack" value="attack"><br>
-  <div id="robot1">
+  <div id="yourChar">
   </div>
-  <div id="robot2">
+  <div id="yourEnemy">
   </div>
 <script src="/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
