@@ -11,113 +11,133 @@
 
 // A base Robot function.
 
+// Pizza.prototype.setCrustThickness = function (thickness) {
+//   this.crustThickness = this.crustThickness * thickness;
+// };
+
 var BattleBots = (function (battleBots) {
-var Robot = function () {
-  this.attack = 10
-  this.health = 50
+
+
+
+
+battleBots.Robot = function () {
+  this.name = "";
+  this.attack = Math.floor(Math.random() * 10 + 5);
+  this.health = Math.floor(Math.random() * 40 + 50);
+  this.type = null;
+  this.model = null;
+
 
 }
 
-Robot.prototype.setAttackStrength = function (strength) {
-  this.attack = this.attack * strength;
 
-
-}
-
-Robot.prototype.setHealthLevel = function (survival) {
-  this.health = this.health * survival
-}
-
-
-// Define three robot type functions (e.g. Drone, Bipedal, ATV).
-
-var Drone = function () {
-  this.attack = this.attack + 20
-  this.health = this.health - 10
+battleBots.Robot.prototype.setHealth = function (healthBonus) {
+  this.health = this.health * healthBonus
 
 }
 
-Drone.prototype = new Robot();
+battleBots.Robot.prototype.setDamage = function (damageBonus) {
+  this.attack = this.attack * damageBonus
 
+}
 
-// Define at least 2 specific robot model functions for each type.
+battleBots.Drone = function () {
+  this.type = "drone";
+}
 
-var thanksObama = function () {
+battleBots.Drone.prototype = new battleBots.Robot();
 
-};
-
-Robot.Drone.thanksObama.prototype = new Robot.Drone();
-
-
-
-// Define at least 2 specific robot model functions for each type.
-
-var photoTime = function () {
-
-};
-
-Robot.Drone.photoTime.prototype = new Robot.Drone();
-
-
-
-// Define three robot type functions (e.g. Drone, Bipedal, ATV).
-
-
-var BiPedal = function ()  {
-  this.attack = this.attack + 2
-  this.health = this.health + 10
+battleBots.ThanksObama = function () {
+  this.damageBonus = 10;
+  this.healthBonus = 50;
+  this.model = "obama";
 
 };
 
-BiPedal.prototype = new Robot();
+battleBots.ThanksObama.prototype = new battleBots.Drone();
 
 
-var CThreePO = function () {
-
-};
-
-Robot.BiPedal.cThreePO.prototype = new Robot.BiPedal();
-
-var JohnnyFive = function () {
+battleBots.PhotoTime = function () {
+  this.damageBonus = 5;
+  this.healthBonus = 40;
+  this.model = "phototime";
 
 };
 
-Robot.BiPedal.JohnnyFive.prototype = new Robot.BiPedal();
-
-
-// Define three robot type functions (e.g. Drone, Bipedal, ATV).
+battleBots.PhotoTime.prototype = new battleBots.Drone();
 
 
 
-var ATV = function () {
-    this.attack = this.attack + 5
-    this.health = this.health + 20
+
+
+battleBots.BiPedal = function ()  {
+  this.type = "Bipedal";
 
 };
 
-ATV.prototype = new Robot();
+battleBots.BiPedal.prototype = new battleBots.Robot();
 
 
-// Define at least 2 specific robot model functions for each type.
-
-
-var recVehicle = function () {
-
-};
-
-Robot.ATV.recVehicle.prototype = new Robot.ATV();
-
-
-// Define at least 2 specific robot model functions for each type.
-
-
-
-var militaryVehicle = function () {
+battleBots.CThreePO = function () {
+  this.model = "CThreePO";
+  this.healthBonus = 7;
+  this.damageBonus = 6;
 
 };
 
-Robot.ATV.militaryVehicle.prototype = new Robot.ATV();
+battleBots.CThreePO.prototype = new battleBots.BiPedal();
 
-})(BattleBots)
+battleBots.JohnnyFive = function () {
+  this.healthBonus = 80;
+  this.damageBonus = 15;
+
+};
+
+battleBots.JohnnyFive.prototype = new battleBots.BiPedal();
 
 
+battleBots.ATV = function () {
+    this.type = "atv";
+
+};
+
+battleBots.ATV.prototype = new battleBots.Robot();
+
+
+
+
+battleBots.RecVehicle = function () {
+  this.model = "recVehicle";
+  this.damageBonus = 25;
+  this.healthBonus = 40;
+
+};
+
+battleBots.RecVehicle.prototype = new battleBots.ATV();
+
+
+
+battleBots.MilitaryVehicle = function () {
+  this.model = "military";
+  this.damageBonus = 60;
+  this.healthBonus = 100;
+
+};
+
+battleBots.MilitaryVehicle.prototype = new battleBots.ATV();
+
+
+return battleBots
+
+})(BattleBots || {})
+
+
+
+
+// DeepDish.prototype = new Pizza();
+// //defines relationship between deepdish and pizza
+// // created prototype chain between deepdish and pizza
+// // DeepDish.setCrustThickness(3);
+// //The above doesn't work because we've only made deepdish a child of pizza.
+// // no instance of deepdish yet thus can't call method yet
+// var myPizza = new DeepDish();
