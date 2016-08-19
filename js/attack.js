@@ -91,7 +91,6 @@ console.log("This is the health before", enemy.health)
 
 $("#yourEnemy").append(`<h1> Enemy: ${enemy.name} </h1> <p> Health: ${enemy.health}</p> <p> Attack: ${enemy.attack}</p>`)
 
-return enemy
 }
 
 battleBots.giveDamage = function (enemy, player) {
@@ -100,12 +99,10 @@ battleBots.giveDamage = function (enemy, player) {
 
   if (player.health === 0) {
     alert("You lose!");
-  } else if (enemy.health === 0) {
-    alert("You win!");
-  } else {
-    BattleBots.renderRobots();
   }
-
+  if (enemy.health === 0) {
+    alert("You win!");
+  }
 }
 
 return battleBots
