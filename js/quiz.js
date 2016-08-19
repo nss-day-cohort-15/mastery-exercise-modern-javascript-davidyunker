@@ -49,7 +49,7 @@ battleBots.Drone.prototype = new battleBots.Robot();
 
 battleBots.ThanksObama = function () {
   this.damageBonus = 10;
-  this.healthBonus = 50;
+  this.healthBonus = 4;
   this.model = "obama";
 
 };
@@ -58,8 +58,8 @@ battleBots.ThanksObama.prototype = new battleBots.Drone();
 
 
 battleBots.PhotoTime = function () {
-  this.damageBonus = 5;
-  this.healthBonus = 40;
+  this.damageBonus = 1;
+  this.healthBonus = 3;
   this.model = "phototime";
 
 };
@@ -80,16 +80,16 @@ battleBots.BiPedal.prototype = new battleBots.Robot();
 
 battleBots.CThreePO = function () {
   this.model = "CThreePO";
-  this.healthBonus = 7;
-  this.damageBonus = 6;
+  this.healthBonus = 5;
+  this.damageBonus = 2;
 
 };
 
 battleBots.CThreePO.prototype = new battleBots.BiPedal();
 
 battleBots.JohnnyFive = function () {
-  this.healthBonus = 80;
-  this.damageBonus = 15;
+  this.healthBonus = 4;
+  this.damageBonus = 1;
 
 };
 
@@ -108,8 +108,8 @@ battleBots.ATV.prototype = new battleBots.Robot();
 
 battleBots.RecVehicle = function () {
   this.model = "recVehicle";
-  this.damageBonus = 25;
-  this.healthBonus = 40;
+  this.damageBonus = 1;
+  this.healthBonus = 2;
 
 };
 
@@ -119,8 +119,8 @@ battleBots.RecVehicle.prototype = new battleBots.ATV();
 
 battleBots.MilitaryVehicle = function () {
   this.model = "military";
-  this.damageBonus = 60;
-  this.healthBonus = 100;
+  this.damageBonus = 5;
+  this.healthBonus = 7;
 
 };
 

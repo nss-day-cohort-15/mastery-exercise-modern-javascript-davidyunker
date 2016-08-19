@@ -3,6 +3,9 @@
 
 BattleBots = (function (battleBots) {
 
+  var player = null;
+  var enemy = null;
+
   battleBots.buildPlayer = function () {
    var robotName1 = $('#robot1').val();
    console.log(robotName1)
@@ -11,25 +14,25 @@ BattleBots = (function (battleBots) {
 
 
   if (playerType === "ThanksObama") {
-    var player = new BattleBots.ThanksObama;
+    player = new BattleBots.ThanksObama;
     console.log(player)
   }
   else if (playerType === "PhotoTime") {
-    var player = new BattleBots.PhotoTime;
+    player = new BattleBots.PhotoTime;
     console.log(player)
   }
   else if (playerType === "CThreePO") {
-    var player = new BattleBots.CThreePO;
+    player = new BattleBots.CThreePO;
   }
 
   else if (playerType === "JohnnyFive") {
-    var player = new BattleBots.JohnnyFive;
+    player = new BattleBots.JohnnyFive;
   }
   else if (playerType === "RecVehicle") {
-    var player = new BattleBots.RecVehicle;
+    player = new BattleBots.RecVehicle;
   }
   else if (playerType === "MilitaryVec") {
-    var player = new BattleBots.MilitaryVec;
+    player = new BattleBots.MilitaryVec;
   }
   else { alert("Pick a robot type!")
 }
@@ -41,8 +44,9 @@ BattleBots = (function (battleBots) {
  console.log("This is the attack now for myPlayer", player.attack)
  console.log("This is the health now for my player", player.health)
 
- $("#yourChar").append(`<h1> ${player.name} </h1> <p>${player.health}</p> <p>${player.attack}</p>`)
+ $("#yourChar").append(`<h1> Player: ${player.name} </h1> <p> Health: ${player.health}</p> <p> Attack: ${player.attack}</p>`)
 
+return player
 }
 
     battleBots.buildEnemy = function () {
@@ -85,18 +89,18 @@ console.log("This is the health before", enemy.health)
  console.log("This is the attack now for Enemy", enemy.attack)
  console.log("This is the health now for Enemy", enemy.health)
 
-$("#yourEnemy").append(`<h1> ${enemy.name} </h1> <p>${enemy.health}</p> <p>${enemy.attack}</p>`)
+$("#yourEnemy").append(`<h1> Enemy: ${enemy.name} </h1> <p> Health: ${enemy.health}</p> <p> Attack: ${enemy.attack}</p>`)
 
+return enemy
 }
 
+battleBots.giveDamage = function (enemy, player) {
+  enemy.health = enemy.health - player.attack;
+  player.health = player.health - enemy.attack;
 
-battleBots.giveDamage = function (enemyObj, playerObj) {
-  enemyObj.health = enemyObj.health - player.attack;
-  playerObj.health = playerObj.health - enemyObj.attack;
-
-  if (playerObj.health === 0) {
+  if (player.health === 0) {
     alert("You lose!");
-  } else if (enemyObj.health === 0) {
+  } else if (enemy.health === 0) {
     alert("You win!");
   } else {
     BattleBots.renderRobots();
@@ -106,8 +110,6 @@ battleBots.giveDamage = function (enemyObj, playerObj) {
 
 return battleBots
 })(BattleBots)
-
-
 
 
 

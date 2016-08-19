@@ -6,7 +6,7 @@ $("#fight").on('click', function(){
 })
 
 
-$("attack").click(function (){
+$("#attack").click(function (){
   console.log("attack clicked!")
   BattleBots.giveDamage()
 
