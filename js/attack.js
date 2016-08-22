@@ -1,4 +1,4 @@
-
+ "use strict";
 
 
 BattleBots = (function (battleBots) {
@@ -14,25 +14,25 @@ BattleBots = (function (battleBots) {
 
 
   if (playerType === "ThanksObama") {
-    player = new BattleBots.ThanksObama;
+    player = new BattleBots.ThanksObama();
     console.log(player)
   }
   else if (playerType === "PhotoTime") {
-    player = new BattleBots.PhotoTime;
+    player = new BattleBots.PhotoTime();
     console.log(player)
   }
   else if (playerType === "CThreePO") {
-    player = new BattleBots.CThreePO;
+    player = new BattleBots.CThreePO();
   }
 
   else if (playerType === "JohnnyFive") {
-    player = new BattleBots.JohnnyFive;
+    player = new BattleBots.JohnnyFive();
   }
   else if (playerType === "RecVehicle") {
-    player = new BattleBots.RecVehicle;
+    player = new BattleBots.RecVehicle();
   }
   else if (playerType === "MilitaryVec") {
-    player = new BattleBots.MilitaryVec;
+    player = new BattleBots.MilitaryVec();
   }
   else { alert("Pick a robot type!")
 }
@@ -44,9 +44,8 @@ BattleBots = (function (battleBots) {
  console.log("This is the attack now for myPlayer", player.attack)
  console.log("This is the health now for my player", player.health)
 
- $("#yourChar").append(`<h1> Player: ${player.name} </h1> <p> Health: ${player.health}</p> <p> Attack: ${player.attack}</p>`)
+ $("#yourChar").append(`<h1> Player: ${player.name} </h1> <p class="playerhealth"> Health: ${player.health}</p> <p class="playerattack"> Attack: ${player.attack}</p>`)
 
-return player
 }
 
     battleBots.buildEnemy = function () {
@@ -56,26 +55,26 @@ return player
     console.log(enemyType)
 
     if (enemyType === "ThanksObama") {
-    var enemy = new BattleBots.ThanksObama;
+    enemy = new BattleBots.ThanksObama();
     console.log(enemy)
     console.log(enemy.damageBonus)
 
   }
 
   else if (enemyType === "PhotoTime") {
-    var enemy = new BattleBots.PhotoTime;
+    enemy = new BattleBots.PhotoTime();
   }
   else if (enemyType === "CThreePO") {
-    var enemy = new BattleBots.CThreePO;
+    enemy = new BattleBots.CThreePO();
   }
   else if (enemyType === "JohnnyFive") {
-    var enemy = new BattleBots.JohnnyFive;
+    enemy = new BattleBots.JohnnyFive();
   }
   else if (enemyType === "RecVehicle") {
-    var enemy = new BattleBots.RecVehicle;
+    enemy = new BattleBots.RecVehicle();
   }
   else if (enemyType === "MilitaryVec") {
-    var enemy = new BattleBots.MilitaryVec;
+    enemy = new BattleBots.MilitaryVec();
   }
   else {
     alert("Pick a robot type!")
@@ -93,17 +92,22 @@ $("#yourEnemy").append(`<h1> Enemy: ${enemy.name} </h1> <p> Health: ${enemy.heal
 
 }
 
-battleBots.giveDamage = function (enemy, player) {
-  enemy.health = enemy.health - player.attack;
-  player.health = player.health - enemy.attack;
+battleBots.giveDamage = function () {
 
-  if (player.health === 0) {
-    alert("You lose!");
+  player.health = player.health - enemy.attack;
+  enemy.health = enemy.health - player.attack;
+
+  $("#yourChar").html(`<h1> Player: ${player.name} </h1> <p> Health: ${player.health}</p> <p> Attack: ${player.attack}</p>`)
+  $("#yourEnemy").html(`<h1> Enemy: ${enemy.name} </h1> <p> Health: ${enemy.health}</p> <p> Attack: ${enemy.attack}</p>`)
+
+    if (player.health <= 0) {
+    alert(`"Sorry, ${player.name}. You were defeated by ${enemy.name}!"`);
   }
-  if (enemy.health === 0) {
-    alert("You win!");
+  if (enemy.health <= 0) {
+    alert(`"Nice job, ${player.name}! You defeated ${enemy.name}"`);
   }
 }
+
 
 return battleBots
 })(BattleBots)

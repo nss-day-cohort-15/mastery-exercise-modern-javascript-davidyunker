@@ -14,6 +14,7 @@
 // Pizza.prototype.setCrustThickness = function (thickness) {
 //   this.crustThickness = this.crustThickness * thickness;
 // };
+ "use strict";
 
 var BattleBots = (function (battleBots) {
 

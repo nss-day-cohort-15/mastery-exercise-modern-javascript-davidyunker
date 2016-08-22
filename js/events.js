@@ -1,4 +1,4 @@
-
+ "use strict";
 
 $("#fight").on('click', function(){
   BattleBots.buildPlayer()
