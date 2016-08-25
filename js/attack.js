@@ -89,12 +89,20 @@ battleBots.giveDamage = function () {
   $("#yourEnemy").html(`<h1> Enemy: ${enemy.name} </h1> <p> Health: ${enemy.health}</p> <p> Attack: ${enemy.attack}</p>`)
 
     if (player.health <= 0) {
+      player.health = 0;
     alert(`"Sorry, ${player.name}. You were defeated by ${enemy.name}!"`);
   }
   if (enemy.health <= 0) {
+    enemy.health = 0;
     alert(`"Nice job, ${player.name}! You defeated ${enemy.name}"`);
   }
 }
+
+battleBots.addAttackButton = function() {
+    $("#attackButton").append(`<div id="buttonHolder"><input type="button" id="attack" value="attack"></div>`)
+  }
+
+
 
 
 return battleBots

@@ -4,16 +4,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="quiz.css">
   <title>Robot wars</title>
 </head>
 <body>
   <div class="container">
+    <h1>Robot Battledome</h1>
       <div class="form-group">
       <label for="robot1">Robot 1:</label>
-      <input type="text" id="robot1"><br>
-        <select class="robots selectpicker">
+        <input type="text" id="robot1"><br>
+        <label for="robots1">Pick your robot</label>
+          <select class="robots selectpicker">
                 <option value="ThanksObama">Thanks Obama</option>
                 <option value="PhotoTime">Photo Time</option>
                 <option value="CThreePO">CThreePO</option>
@@ -25,6 +27,7 @@
       <div class="form-group">
       <label for="robot2">Robot 2:</label>
       <input type="text" id="robot2"><br>
+        <label for="robots1">Pick your opponent</label>
         <select class="opponents selectpicker">
                 <option value="ThanksObama">Thanks Obama</option>
                 <option value="PhotoTime">Photo Time</option>
@@ -34,15 +37,16 @@
                 <option value="MilitaryVec">Military Vehicle</option>
               </select>
         </div>
-        <input type="button" id="fight" value="fight">
-        <input type="button" id="attack" value="attack"><br>
+        <input type="button" id="fight" value="Start battle"><br>
       <div id="yourChar">
       </div>
       <div id="yourEnemy">
+      </div><br>
+      <div id="attackButton">
       </div>
   </div>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="js/quiz.js"></script>
 <script src="js/attack.js"></script>
 <script src="js/events.js"></script>

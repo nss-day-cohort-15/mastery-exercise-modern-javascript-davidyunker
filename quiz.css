@@ -2,3 +2,7 @@ div {
   display: inline-block;
   margin-right: 20px;
 }
+
+#attack {
+  width: 150%;
+}

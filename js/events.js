@@ -3,13 +3,17 @@
 $("#fight").on('click', function(){
   BattleBots.buildPlayer()
   BattleBots.buildEnemy()
+  BattleBots.addAttackButton()
 })
 
 
-$("#attack").click(function (){
+
+$(document).on('click', '#attack', function(){
+  console.log("I'm clicking you")
   BattleBots.giveDamage()
-
 })
+
+
 
 
 
