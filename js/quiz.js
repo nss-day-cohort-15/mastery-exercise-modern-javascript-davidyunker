@@ -21,6 +21,9 @@ var BattleBots = (function (battleBots) {
 
 
 
+
+
+
 battleBots.Robot = function () {
   this.name = "";
   this.attack = Math.floor(Math.random() * 10 + 5);

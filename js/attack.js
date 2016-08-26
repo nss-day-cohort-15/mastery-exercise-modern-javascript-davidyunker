@@ -6,6 +6,8 @@ BattleBots = (function (battleBots) {
   var player = null;
   var enemy = null;
 
+
+
   battleBots.buildPlayer = function () {
    var robotName1 = $('#robot1').val();
    var playerType = $(".robots").val();
@@ -36,6 +38,7 @@ BattleBots = (function (battleBots) {
  player.setDamage([player.damageBonus])
  player.setHealth([player.healthBonus])
  player.name = robotName1
+
 
  $("#yourChar").append(`<h1> Player: ${player.name} </h1> <p class="playerhealth"> Health: ${player.health}</p> <p class="playerattack"> Attack: ${player.attack}</p>`)
 
